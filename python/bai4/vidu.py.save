@@ -1,0 +1,12 @@
+def connect():
+	import MySQLdb
+	db = MySQLdb.connect("localhost","root","12345678","sinhvien")
+	cursor = db.cursor()
+	db.close()
+def create():
+	import MySQLdb
+        db = MySQLdb.connect("localhost","root","12345678","sinhvien")
+	cursor = db.cursor()
+        db.close()
+
+

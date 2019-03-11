@@ -1,0 +1,36 @@
+def connect():
+	import MySQLdb
+	db = MySQLdb.connect("localhost","root","12345678","sinhvien")
+	cursor = db.cursor()
+	db.close()
+def create():
+	import MySQLdb
+	db = MySQLdb.connect("localhost","root","12345678","sinhvien")
+	cursor = db.cursor()
+	sql = """CREATE TABLE sensors(
+       		 id INT(10) PRIMARY KEY AUTO_INCREMENT, temperature INT(3) NOT NULL,
+       		 humidity INT(3) NOT NULL, time DATETIME NOT NULL)"""
+	cursor.execute(sql)
+	db.close()
+def insert(a,b,c):
+	import MySQLdb
+	db = MySQLdb.connect("localhost","root","12345678","sinhvien")
+	cursor = db.cursor()import MySQLdb
+db = MySQLdb.connect("localhost","root","12345678","sinhvien")
+
+cursor = db.cursor()
+
+sql = """INSERT INTO sensors(temperature, humidity, time) VALUES('16', '25', '2$
+try:
+   cursor.execute(sql)
+   db.commit()
+except:
+   db.rollback()
+db.close()
+	sql = """INSERT INTO sensors(temperature, humidity, time) VALUES(a, b, 'c')"""
+	try:
+		cursor.execute(sql)
+		db.commit()
+	except:
+		db.rollback()
+	db.close()
