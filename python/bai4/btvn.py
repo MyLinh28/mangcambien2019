@@ -61,7 +61,7 @@ def delete():
 def ramdom():
 	from random import randint
 	from time import sleep
-	from datetime import datetime
+	from datetime import datetime, timedelta
 	db = pymysql.connect("localhost","root","12345678","bai4")
 	cursor = db.cursor()
 	try:
@@ -70,7 +70,7 @@ def ramdom():
 			hum = randint(80,90)
 			light = randint(20,80)
 			time  =  datetime.now()
-			sql = """INSERT INTO btvn(temperature, humidity,light, time) 
+			sql = """INSERT INTO btvn(temperature, humidity,light, time)
 						VALUES (%s, %s,%s, %s)"""
 			#sleep(1)
 			cursor.execute(sql,(temp,hum,light,time))
@@ -113,7 +113,9 @@ def yeucau():
 			if b == '2':
 				sql = "select * from btvn order by light desc"
 		cursor.execute(sql)
-		results = cursor.fetchall()
-		print (results)
+		for row in cursor:
+			print(row)
+		#results = cursor.fetchall()
+		#print (results)
 	except:
 		print("khong co du lieu")
